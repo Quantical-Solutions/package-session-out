@@ -40,7 +40,7 @@ php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceP
 just include the blade file to all the blade views which are only available to authenticated users.
 
 ```php
-@include('vendor.sessionout.notify')
+@include('vendor.session-out.notify')
 ```
 
 > rather copying this line over & over to the views, extend your base blade view and include it there in the bottom
@@ -76,7 +76,7 @@ php artisan queue:work --queue=default,usersession
 ```php
 <script type="text/javascript" src="{{ asset('js/broadcasting.js') }}"></script>
 //some html between
-@include('vendor.sessionout.notify')
+@include('vendor.session-out.notify')
 ```
 3. in `App\Providers\BroadcastServiceProvider` file in the `boot` method require the package's channel file, it contains private channel authentication
 ```php
@@ -114,13 +114,13 @@ public function handle(Login $user)
 
 #### ✔ Update the modal design & contents
 
-The modal is created with pure `js` and `css` no framework has been used, so you can easily customize the modal contents by editing the `views/vendor/sessionout/modal.blade.php` & the design by editing `public/vendor/sessionout/css/session-modal.css`
+The modal is created with pure `js` and `css` no framework has been used, so you can easily customize the modal contents by editing the `views/vendor/session-out/modal.blade.php` & the design by editing `public/vendor/session-out/css/session-modal.css`
 
 #### ✔ Advanced
 
-- 🔘 if you want to customize the `js` file which is responsible for checking auth session & modal display then modify the `public/vendor/sessionout/js/main.js` file but don't forget to compile it with webpack & place the compiled `js` as `public/vendor/sessionout/dist/js/main.js`
+- 🔘 if you want to customize the `js` file which is responsible for checking auth session & modal display then modify the `public/vendor/session-out/js/main.js` file but don't forget to compile it with webpack & place the compiled `js` as `public/vendor/session-out/dist/js/main.js`
 
-- 🔘 **you may want to create a login form** in the modal, first create the html form in the `views/vendor/sessionout/modal.blade.php` then put the ajax code in `public/vendor/sessionout/js/main.js` & don't forget to compile as mentioned above,
+- 🔘 **you may want to create a login form** in the modal, first create the html form in the `views/vendor/session-out/modal.blade.php` then put the ajax code in `public/vendor/session-out/js/main.js` & don't forget to compile as mentioned above,
 > after ajax success close the modal by calling the `closeSessionOutModal()` function
 
 
@@ -139,7 +139,7 @@ php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceP
 php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceProvider" --tag=public --force
 ```
 
-> when updating the package take backup of the `config/expiredsession.php` file & `public/vendor/sessionout`, `views/vendor/sessionout` directories as the files inside these dir. are configurable so if you modify the files then the updated published files will not contain the changes, though after publishing the `assets`, `views` and `config` you may again modify the files
+> when updating the package take backup of the `config/expiredsession.php` file & `public/vendor/session-out`, `views/vendor/session-out` directories as the files inside these dir. are configurable so if you modify the files then the updated published files will not contain the changes, though after publishing the `assets`, `views` and `config` you may again modify the files
 
 #### 🔧 After you tweak things
 
