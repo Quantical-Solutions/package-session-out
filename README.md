@@ -1,11 +1,5 @@
 # Session expired message for your Laravel application
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/devsrv/laravel-session-out.svg?style=flat-square)](https://packagist.org/packages/devsrv/laravel-session-out)
-[![GitHub license](https://img.shields.io/github/license/devsrv/laravel-session-out.svg?style=flat-square)](https://github.com/devsrv/laravel-session-out/blob/master/LICENSE)
-[![Total Downloads](https://img.shields.io/packagist/dt/devsrv/laravel-session-out.svg?style=flat-square)](https://packagist.org/packages/devsrv/laravel-session-out)
-[![Laravel Support](https://img.shields.io/badge/Laravel-5.*-blue.svg?longCache=true&style=flat-square)](#)
-[![GitHub issues](https://img.shields.io/github/issues/devsrv/laravel-session-out.svg?style=flat-square)](https://github.com/devsrv/laravel-session-out/issues)
-
+<small>Upgraded version from <a href="https://github.com/devsrv/laravel-session-out" target="_blank">devsrv / laravel-session-out</a> which was not maintained since Larvel v5.* so big thx to <b>devsrv</b> for that awesome work !</small>
 
 If for any reason _**( user logged out intentionally / session lifetime expired / session flushed for all logged in devices of the user )**_ the authentication session doesn't exist & still the user is on a page or multiple pages which require the user to be logged in, then showing a message that
 
