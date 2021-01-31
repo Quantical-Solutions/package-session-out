@@ -4,7 +4,7 @@ function checkAuth(){
 
     axios.post(`${window.sessionout.authpingEndpoint}`, {
         pinguser: 1,
-        _token: document.querySelector('meta[name="csrf-token"]').content
+        _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     })
         .then(function (response) {
             if (parseInt(response.data.auth) === 0){
