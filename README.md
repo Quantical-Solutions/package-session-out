@@ -74,7 +74,7 @@ php artisan queue:work --queue=default,usersession
 
 2. make sure to put the broadcasting client config `js` file above the `@include` line not below it, in your blade view.
 ```php
-<script type="text/javascript" src="{{ asset('js/broadcasting.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 //some html between
 @include('vendor.session-out.notify')
 ```
@@ -82,7 +82,7 @@ php artisan queue:work --queue=default,usersession
 ```php
 require base_path('vendor/quantical-solutions/session-out-modal-laravel/src/routes/channels.php');
 ```
-4. in all the places from where users are authenticated call `Quantic\SessionOut\classes\AuthState::sessionAvailable()` .
+4. in all the places from where users are authenticated call `Quantic\SessionOut\Classes\AuthState::sessionAvailable()` .
 if you are using custom logic to login users then put the line inside your authentication method when login is successful. 
 > if you are using laravel's default authentication system then better choice will be to create a listener of the login event, Example :-
 ```php
@@ -94,10 +94,11 @@ protected $listen = [
         ],
     ];
 ```
+
 ```php
 // App\Listeners\SuccessfulLogin
 
-use Quantic\SessionOut\classes\AuthState;
+use Quantic\SessionOut\Classes\AuthState;
 
 /**
 * Handle the event.

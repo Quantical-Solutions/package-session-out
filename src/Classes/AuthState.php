@@ -1,6 +1,6 @@
 <?php
 
-namespace Quantic\SessionOut\classes;
+namespace Quantic\SessionOut\Classes;
 
 use Quantic\SessionOut\Events\AuthSessionBegins;
 use Auth;

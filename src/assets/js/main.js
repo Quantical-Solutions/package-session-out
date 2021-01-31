@@ -1,28 +1,29 @@
 import axios from 'axios';
 
-function chkAuth(){
-        
-        axios.post(`${window.sessionout.authpingEndpoint}`, {
-            pinguser: 1,
+function checkAuth(){
+
+    axios.post(`${window.sessionout.authpingEndpoint}`, {
+        pinguser: 1,
+        _token: document.querySelector('meta[name="csrf-token"]').content
+    })
+        .then(function (response) {
+            if (parseInt(response.data.auth) === 0){
+                // show modal
+                document.getElementById("modal-quantic").style.visibility = "visible";
+            }
+            else{
+                // user session available, hide the modal
+                document.getElementById("modal-quantic").style.visibility = "hidden";
+            }
         })
-            .then(function (response) {
-                if (parseInt(response.data.auth) === 0){
-                    // show modal
-                    document.getElementById("modal-quantic").style.visibility = "visible";
-                }
-                else{
-                    // user session available, hide the modal
-                    document.getElementById("modal-quantic").style.visibility = "hidden";
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        .catch(function (error) {
+            console.log(error);
+        });
 }
 
 (function(){
     // check every minute if not logged out already
-    setInterval(chkAuth, parseInt(window.sessionout.requestGap) * 1000);
+    setInterval(checkAuth, parseInt(window.sessionout.requestGap) * 1000);
 
     if (parseInt(window.sessionout.usingBroadcasting) === 1){
         // listen for laravel echo
