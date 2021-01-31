@@ -31,13 +31,13 @@ composer require devsrv/laravel-session-out
 
 'providers' => [
     '...',
-    'devsrv\sessionout\sessionExpiredServiceProvider::class',
+    'Quantic\SessionOut\SessionExpiredServiceProvider::class',
 ];
 ```
 
 You need to publish the `blade`, `js`, `css` and `config` files included in the package using the following artisan command:
 ```bash
-php artisan vendor:publish --provider="devsrv\sessionout\sessionExpiredServiceProvider"
+php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceProvider"
 ```
 
 
@@ -88,7 +88,7 @@ php artisan queue:work --queue=default,usersession
 ```php
 require base_path('vendor/devsrv/laravel-session-out/src/routes/channels.php');
 ```
-4. in all the places from where users are authenticated call `devsrv\sessionout\classes\AuthState::sessionAvailable()` .
+4. in all the places from where users are authenticated call `Quantic\SessionOut\classes\AuthState::sessionAvailable()` .
 if you are using custom logic to login users then put the line inside your authentication method when login is successful. 
 > if you are using laravel's default authentication system then better choice will be to create a listener of the login event, Example :-
 ```php
@@ -103,7 +103,7 @@ protected $listen = [
 ```php
 // App\Listeners\SuccessfulLogin
 
-use devsrv\sessionout\classes\AuthState;
+use Quantic\SessionOut\classes\AuthState;
 
 /**
 * Handle the event.
@@ -140,9 +140,9 @@ use `--force` tag after updating the package to publish the **updated latest** p
 > but remember using _--force_ tag will replace all the publishable files
 
 ```bash
-php artisan vendor:publish --provider="devsrv\sessionout\sessionExpiredServiceProvider" --force
+php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceProvider" --force
 
-php artisan vendor:publish --provider="devsrv\sessionout\sessionExpiredServiceProvider" --tag=public --force
+php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceProvider" --tag=public --force
 ```
 
 > when updating the package take backup of the `config/expiredsession.php` file & `public/vendor/sessionout`, `views/vendor/sessionout` directories as the files inside these dir. are configurable so if you modify the files then the updated published files will not contain the changes, though after publishing the `assets`, `views` and `config` you may again modify the files
@@ -154,11 +154,3 @@ Run this artisan command after changing the config file.
 php artisan config:clear
 php artisan queue:restart // only when using broadcasting
 ```
-
-## 👋🏼 Say Hi! 
-Let me know in [Twitter](https://twitter.com/srvrksh) | [Facebook](https://www.facebook.com/srvrksh) if you find this package useful 👍🏼
-
-
-## 🎀 License
-
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
