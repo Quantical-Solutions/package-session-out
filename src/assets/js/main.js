@@ -3,8 +3,7 @@ import axios from 'axios';
 function checkAuth(){
 
     axios.get(`${window.sessionout.authpingEndpoint}`, {
-        pinguser: 1,
-        _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        pinguser: 1
     })
         .then(function (response) {
             if (parseInt(response.data.auth) === 0){
