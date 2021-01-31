@@ -11,10 +11,9 @@
         sessionout.userId = {{ auth()->user()->id }};
         sessionout.usingBroadcasting = {{ config('expired-session.avail_broadcasting') === true? 1 : 0 }};
     </script>
-    <script type="text/javascript" src="{{ asset('vendor/session-out/dist/js/main.js') }}"></script>
     <script type="text/javascript">
         function closeSessionOutModal(){
-            document.getElementById("modal-quantic").style.visibility = "hidden";
+            document.querySelector("#modal-quantic").style.visibility = "hidden";
         }
     </script>
 @endauth

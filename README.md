@@ -72,11 +72,17 @@ and start `usersession` queue worker
 php artisan queue:work --queue=default,usersession
 ```
 
-2. make sure to put the broadcasting client config `js` file above the `@include` line not below it, in your blade view.
+2. make sure to put the broadcasting client config `js` file after the `@include` line not below it, in your blade view.
 ```php
-<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-//some html between
 @include('vendor.session-out.notify')
+```
+> Don't forget to include the require("./session" in resources/js/app.js) just after the last require.
+```js
+require("./bootstrap");
+require("alpinejs");
+require("./session");
+
+// Your JavaScript code...
 ```
 3. in `App\Providers\BroadcastServiceProvider` file in the `boot` method require the package's channel file, it contains private channel authentication
 ```php

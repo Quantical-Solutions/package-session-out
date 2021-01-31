@@ -21,6 +21,10 @@ class SessionExpiredServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
+            __DIR__ . '/assets/js/main.js' => resource_path('js/session.js'),
+        ]);
+
+        $this->publishes([
             __DIR__ . '/assets' => public_path('vendor/session-out'),
         ], 'public');
 

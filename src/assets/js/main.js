@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function checkAuth(){
 
-    axios.get(`${window.sessionout.authpingEndpoint}`, {
+    axios.post(`${window.sessionout.authpingEndpoint}`, {
         pinguser: 1
     })
         .then(function (response) {

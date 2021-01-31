@@ -17,9 +17,13 @@ class AuthCheckCtrl extends Controller
             'pinguser' => 'required|boolean'
         ]);
 
-        if (Auth::check())
+        if (Auth::check()) {
+
             return response()->json(['auth' => 1]);
-        else
+
+        } else {
+
             return response()->json(['auth' => 0]);
+        }
     }
 }
