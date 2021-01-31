@@ -8,11 +8,11 @@ function checkAuth(){
         .then(function (response) {
             if (parseInt(response.data.auth) === 0){
                 // show modal
-                document.querySelector("#modal-quantic").style.visibility = "visible";
+                document.querySelector("#modal-quantic").classList.add('modal-quantic-show');
             }
             else{
                 // user session available, hide the modal
-                document.querySelector("#modal-quantic").style.visibility = "hidden";
+                document.querySelector("#modal-quantic").classList.remove('modal-quantic-show');
             }
         })
         .catch(function (error) {
@@ -32,9 +32,8 @@ function checkAuth(){
                 .listen('.session.active', (e) => {
                     // user auth session resumed
                     // close the notification modal
-                    document.querySelector("#modal-quantic").style.visibility = "hidden";
+                    document.querySelector("#modal-quantic").classList.remove('modal-quantic-show');
                 });
         }
     }
 })();
-

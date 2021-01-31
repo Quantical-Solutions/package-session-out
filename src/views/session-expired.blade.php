@@ -26,16 +26,11 @@
 
             <div class="block mt-4">
                 <span class="flex items-center">
-                    <a id="not-you" class="ml-2 text-sm text-gray-100">{{ __('You are not') }} {{ $name }}</a>
+                    <a href="{{ route('login') }}" id="not-you" class="text-sm text-gray-300 hover:text-gray-100">{{ __('You are not') }} {{ $name }} ?</a>
                 </span>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-300 hover:text-gray-100" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password ?') }}
-                    </a>
-                @endif
 
                 <x-jet-button class="ml-4">
                     {{ __('Login again') }}

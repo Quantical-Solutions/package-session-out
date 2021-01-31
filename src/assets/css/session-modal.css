@@ -2,6 +2,7 @@
  * =============================== */
 #modal-quantic {
   visibility: hidden;
+  opacity: 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -12,76 +13,11 @@
   transition: opacity .25s ease;
 }
 
-.modal-quantic__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  cursor: pointer;
-}
-
-#modal-quantic .modal-quantic__inner {
-  top: 0;
-}
-
-.modal-quantic__inner {
-  transition: top .25s ease;
-  position: absolute;
-  top: -20%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  margin: auto;
-  overflow: auto;
-  background: #fff;
-  border-radius: 5px;
-  padding: 1em 2em;
-  height: 50%;
-}
-
-.modal-quantic__close {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  width: 1.1em;
-  height: 1.1em;
-  cursor: pointer;
-}
-
-.modal-quantic__close:after,
-.modal-quantic__close:before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 1.5em;
-  background: #ccc;
-  display: block;
-  transform: rotate(45deg);
-  left: 50%;
-  margin: -3px 0 0 -1px;
-  top: 0;
-}
-
-.modal-quantic__close:hover:after,
-.modal-quantic__close:hover:before {
-  background: #aaa;
-}
-
-.modal-quantic__close:before {
-  transform: rotate(-45deg);
-}
-
 #session-expired-form {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-
-  .modal-quantic__inner {
-    width: 90%;
-    height: 90%;
-    box-sizing: border-box;
-  }
+.modal-quantic-show {
+  opacity: 1!important;
+  visibility: visible!important;
 }
