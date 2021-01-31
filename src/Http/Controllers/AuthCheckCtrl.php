@@ -19,11 +19,12 @@ class AuthCheckCtrl extends Controller
 
         if (Auth::check()) {
 
-            return response()->json(['auth' => 1]);
+            echo json_encode(['auth' => 1], JSON_THROW_ON_ERROR);
 
         } else {
 
-            return response()->json(['auth' => 0]);
+            echo json_encode(['auth' => 0], JSON_THROW_ON_ERROR);
         }
+        exit();
     }
 }
