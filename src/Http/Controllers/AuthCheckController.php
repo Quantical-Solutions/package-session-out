@@ -5,8 +5,9 @@ namespace Quantic\SessionOut\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\User;
 
-class AuthCheckCtrl extends Controller
+class AuthCheckController extends Controller
 {
     /**
      * ping the server to check whether user is online
@@ -26,5 +27,15 @@ class AuthCheckCtrl extends Controller
             echo json_encode(['auth' => 0], JSON_THROW_ON_ERROR);
         }
         exit();
+    }
+
+    /**
+     * go to restart session form
+     */
+    public function setStatus(Request $request)
+    {
+        $id = $request->input('user_id');
+        $user = User::select('email', 'name')->where('id', $id)->first();
+        return view('vendor.session-out.session-expired', ['email' => $user->email, 'name' => $user->name]);
     }
 }
