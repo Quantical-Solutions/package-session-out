@@ -51,7 +51,7 @@ just include the blade file to all the blade views which are only available to a
 
 #### ✔ The Config File
 
-publishing the vendor will create `config/expiredsession.php` file
+publishing the vendor will create `config/expired-session.php` file
 
 ```php
 return [
