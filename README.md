@@ -111,7 +111,20 @@ public function handle(Login $user)
 	AuthState::sessionAvailable();
 }
 ```
+5. place in your config/app.php under providers:
 
+```php
+App\Providers\SessionServiceProvider::class
+```
+
+> You must change it in your kernel file: App/Http/Kernel.php, in the $middlewareGroups section change the default entry,
+```php
+\Illuminate\Session\Middleware\StartSession::class
+```
+> to your new class
+```php
+\App\Http\Middleware\StartSession::class,
+```
 
 #### ✔ Update the modal design & contents
 

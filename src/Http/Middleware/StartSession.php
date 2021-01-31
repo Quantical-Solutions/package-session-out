@@ -20,6 +20,7 @@ class StartSession extends BaseStartSession
         if(\Request::is('check-auth'))
         {
             \Config::set('session.driver', 'array');
+            \Config::set('cookie.driver', 'array');
         }
         return parent::handle($request, $next);
     }
