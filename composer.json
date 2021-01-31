@@ -1,5 +1,5 @@
 {
-    "name": "quantical-solutions/laravel-session-out",
+    "name": "quantical-solutions/session-out-modal-laravel",
     "description": "Notify the user via modal if session expired",
     "keywords": [
         "laravel suggest login again",
