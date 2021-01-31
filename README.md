@@ -117,7 +117,63 @@ public function handle(Login $user)
 	AuthState::sessionAvailable();
 }
 ```
+5. Got to the VerifyCsrfToken Middleware file and add '/check-auth' in the excluded URIs array
+```php
+namespace App\Http\Middleware;
 
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array
+     */
+    protected $except = [
+        '/check-auth'
+    ];
+}
+```
+
+6. Finally uncomment et use your presets from .env file to fill the Echo params in resources/js/bootstrap.js
+```js
+window._ = require('lodash');
+
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+     broadcaster: 'pusher',
+     key: process.env.MIX_PUSHER_APP_KEY,
+     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+     forceTLS: true
+});
+```
+
+> Don't forget to install Echo & Pusher
+> 
+```bash
+npm install --save-dev laravel-echo pusher-js
+npm run dev
+```
 #### ✔ Update the modal design & contents
 
 The modal is created with pure `js` and `css` no framework has been used, so you can easily customize the modal contents by editing the `views/vendor/session-out/modal.blade.php` & the design by editing `public/vendor/session-out/css/session-modal.css`
