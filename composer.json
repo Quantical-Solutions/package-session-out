@@ -1,0 +1,36 @@
+{
+    "name": "quantic/laravel-session-out",
+    "description": "Notify the user via modal if session expired",
+    "keywords": [
+        "laravel suggest login again",
+        "laravel expired session message"
+    ],
+    "type": "library",
+    "homepage": "https://github.com/quantic/laravel-session-out",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Frédéric GEFFRAY",
+            "email": "in-touch-fg@quanticalsolutions.com",
+            "homepage": "https://quanticalsolutions.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/support": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quantic\\SessionOut\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Quantic\\SessionOut\\SessionExpiredServiceProvider"
+            ]
+        }
+    }
+}
