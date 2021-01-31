@@ -19,7 +19,7 @@ and right after user logged in then hiding the message is all about this package
 You can install the package via composer:
 
 ```bash
-composer require devsrv/laravel-session-out
+composer require quantical-solutions/laravel-session-out
 ```
 
 > Laravel 5.5+ users: this step may be skipped, as we can auto-register the package with the framework.
