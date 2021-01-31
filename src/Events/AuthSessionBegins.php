@@ -35,7 +35,7 @@ class AuthSessionBegins implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('user.sessiotrack.' . $this->user_id);
+        return new PrivateChannel('user.session-track.' . $this->user_id);
     }
 
     /**
