@@ -1,20 +1,20 @@
 @auth
-    <link rel="stylesheet" href="{{ asset('vendor/sessionout/css/session-modal.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/session-out/css/session-modal.css') }}" />
 
     {{-- Modal --}}
-    @include('vendor.sessionout.modal')
+    @include('vendor.session-out.modal')
 
     <script type="text/javascript">
         window.sessionout = window.sessionout || {};
-        sessionout.authpingEndpoint = "{{ route('sessionout.chkauth') }}";
-        sessionout.requestGap = {{ config('expiredsession.gap_seconds') }};
+        sessionout.authpingEndpoint = "{{ route('session-out.check-auth') }}";
+        sessionout.requestGap = {{ config('expired-session.gap_seconds') }};
         sessionout.userId = {{ auth()->user()->id }};
-        sessionout.usingBroadcasting = {{ config('expiredsession.avail_broadcasting') === true? 1 : 0 }};
+        sessionout.usingBroadcasting = {{ config('expired-session.avail_broadcasting') === true? 1 : 0 }};
     </script>
-    <script type="text/javascript" src="{{ asset('vendor/sessionout/dist/js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/session-out/dist/js/main.js') }}"></script>
     <script type="text/javascript">
         function closeSessionOutModal(){
-            document.getElementById("modal-devsrv").style.visibility = "hidden";
+            document.getElementById("modal-quantic").style.visibility = "hidden";
         }
     </script>
 @endauth

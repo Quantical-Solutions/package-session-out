@@ -26,7 +26,7 @@ function chkAuth(){
 
     if (parseInt(window.sessionout.usingBroadcasting) === 1){
         // listen for laravel echo
-        Echo.private(`user.sessiotrack.${ window.sessionout.userId }`)
+        Echo.private(`user.session-track.${ window.sessionout.userId }`)
             .listen('.session.active', (e) => {
                 // user auth session resumed
                 // close the notification modal
