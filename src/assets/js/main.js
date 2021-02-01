@@ -1,5 +1,4 @@
 import axios from 'axios';
-var stamp = null;
 
 function checkAuth(){
 
@@ -18,19 +17,22 @@ function checkAuth(){
 
             } else {
 
-                if (stamp === null) {
-                    stamp = parseInt(Date.now());
+                if (window.sessionout.stamp === null) {
+                    window.sessionout.stamp = parseInt(Date.now());
                 }
 
-                if (parseInt(Date.now()) >= stamp + 45000) {
-                    document.querySelector('#session-expired-form').submit();
+                if (parseInt(Date.now()) >= window.sessionout.stamp + 49990) {
+                    document.querySelector("#session-count-down span").classList.remove('fill-loader-bar');
+                    setTimeout(function (){
+                        document.querySelector('#session-expired-form').submit();
+                    }, 100);
                 }
             }
 
         } else {
             // user session available, hide the modal
             document.querySelector("#modal-quantic").classList.remove('modal-quantic-show');
-            stamp = null;
+            window.sessionout.stamp = null;
             setTimeout(function(){
                 document.querySelector("#session-count-down").innerHTML = '';
             }, 300);

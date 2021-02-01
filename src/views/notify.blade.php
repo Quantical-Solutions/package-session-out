@@ -16,6 +16,7 @@
         sessionout.authpingEndpoint = "{{ route('session-out.check-auth') }}";
         sessionout.userId = {{ auth()->user()->id }};
         sessionout.cookieDuration = "{{ config('session.lifetime') }}";
+        sessionout.stamp = null;
         sessionout.usingBroadcasting = {{ config('expired-session.avail_broadcasting') === true? 1 : 0 }};
 
         function closeSessionOutModal() {
