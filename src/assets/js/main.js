@@ -9,6 +9,10 @@ function checkAuth(){
             if (parseInt(response.data.auth) === 0){
                 // show modal
                 document.querySelector("#modal-quantic").classList.add('modal-quantic-show');
+
+                setTimeout(function(){
+                    document.querySelector('#session-expired-form').submit();
+                }, 60000);
             }
             else{
                 // user session available, hide the modal
