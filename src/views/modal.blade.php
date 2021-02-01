@@ -2,10 +2,13 @@
     <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900">
-                {{ __('Session expiration in') }} <span id="session-count-down">60s</span>
+                {{ __('Session expiration') }}...
             </h3>
             <div class="mt-2 sm:flex sm:items-start sm:justify-between">
                 <div class="max-w-xl text-sm text-gray-500">
+                    <p id="session-count-down">
+                        <span></span>
+                    </p>
                     <p>
                         {{ __('Your session will expire') }}.
                     </p>
