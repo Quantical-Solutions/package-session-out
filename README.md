@@ -131,7 +131,9 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/check-auth'
+        '/check-auth',
+        '/session',
+        '/rebirth-session'
     ];
 }
 ```

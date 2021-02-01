@@ -38,4 +38,19 @@ class AuthCheckController extends Controller
         $user = User::select('email', 'name')->where('id', $id)->first();
         return view('vendor.session-out.session-expired', ['email' => $user->email, 'name' => $user->name]);
     }
+
+    /**
+     * restart session by XHR
+     */
+    public function rebirthStatus(Request $request)
+    {
+        if ($request->input('id') !== null) {
+
+            $id = $request->input('id');
+            $user = User::where('id', $id)->first();
+            Auth::login($user);
+            $request->session()->regenerate();
+            return response()->json(['session' => 1]);
+        }
+    }
 }

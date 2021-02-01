@@ -10,7 +10,7 @@
   left: 0;
   text-align: left;
   background: rgba(0,0,0, .9);
-  transition: opacity .25s ease;
+  transition: all .25s ease;
 }
 
 #session-expired-form {
@@ -20,4 +20,39 @@
 .modal-quantic-show {
   opacity: 1!important;
   visibility: visible!important;
+}
+
+#session-count-down {
+  width: 100%;
+  height: 8px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid #E7E7E7;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-bottom: 1em;
+}
+
+#session-count-down span {
+  width: 100%;
+  height: 100%;
+  background-color: rebeccapurple;
+  border-radius: 100px;
+  transition: width linear 1s;
+}
+
+.fill-loader-bar {
+  animation: fill-load linear 60s;
+}
+
+@keyframes fill-load {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
 }

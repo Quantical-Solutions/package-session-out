@@ -7,7 +7,7 @@
             <div class="mt-2 sm:flex sm:items-start sm:justify-between">
                 <div class="max-w-xl text-sm text-gray-500">
                     <p id="session-count-down">
-                        <span></span>
+                        <!-- JS Replacer -->
                     </p>
                     <p>
                         {{ __('Your session will expire') }}.
