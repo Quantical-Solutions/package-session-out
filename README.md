@@ -55,11 +55,10 @@ publishing the vendor will create `config/expired-session.php` file
 
 ```php
 return [
-	// the number of seconds between ajax hits to check auth session
-    'gap_seconds' => 30,
     
     // whether using broadcasting feature to make the modal disappear faster
     'avail_broadcasting' => false,
+];
 ```
 
 #### ✔ If you want to take advantage of broadcasting
@@ -182,9 +181,8 @@ The modal is created with pure `js` and `css` no framework has been used, so you
 
 #### ✔ Advanced
 
-- 🔘 if you want to customize the `js` file which is responsible for checking auth session & modal display then modify the `public/vendor/session-out/js/main.js` file but don't forget to compile it with webpack & place the compiled `js` as `public/vendor/session-out/dist/js/main.js`
+- 🔘 if you want to customize the `js` file which is responsible for checking auth session & modal display then modify the `resources/js/session.js`
 
-- 🔘 **you may want to create a login form** in the modal, first create the html form in the `views/vendor/session-out/modal.blade.php` then put the ajax code in `public/vendor/session-out/js/main.js` & don't forget to compile as mentioned above,
 > after ajax success close the modal by calling the `closeSessionOutModal()` function
 
 
@@ -203,7 +201,7 @@ php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceP
 php artisan vendor:publish --provider="Quantic\SessionOut\SessionExpiredServiceProvider" --tag=public --force
 ```
 
-> when updating the package take backup of the `config/expiredsession.php` file & `public/vendor/session-out`, `views/vendor/session-out` directories as the files inside these dir. are configurable so if you modify the files then the updated published files will not contain the changes, though after publishing the `assets`, `views` and `config` you may again modify the files
+> when updating the package take backup of the `config/expired-session.php` file & `resources/js/session.js`, `views/vendor/session-out` directories as the files inside these dirs are configurable so if you modify the files then the updated published files will not contain the changes, though after publishing the `assets`, `views` and `config` you may again modify the files
 
 #### 🔧 After you tweak things
 
